@@ -25,6 +25,7 @@
 .intro-txt{
   width: 50%;
   align-self: center;
+  padding-right: 100px;
 }
 .intro-txt h5{
   font-size: xx-large;
@@ -69,14 +70,14 @@
 .experience{
   background-color: white;
   margin-top: 80px;
-  padding: 60px;
-  padding-bottom: 100px;
+  padding: 60px 60px 100px 60px;
+  /* padding-bottom: 100px; */
   /* min-height: 800px; */
   height: fit-content;
   align-items: center;
 }
 .experience h3{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .exp-items{
   display: flex;
@@ -108,13 +109,38 @@
   font-size: 23px;
   text-align: center;
   font-weight: 600;
-  
+}
+
+/* CONTACT */
+.contact{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  margin-top: 80px;
+  padding: 170px 60px 170px 120px;
+}
+.contact-txt{
+  width: 50%;
+}
+.contact-txt h3{
+  width: 70%;
+  margin-bottom: 60px;
+}
+.contact-img{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.contact-img h4{
+  margin-top: 20px;
 }
 
 
 
-
 @media (max-width: 600px) {
+  /* INTRODUCTION */
   .intro{
     height: fit-content;
   }
@@ -130,6 +156,7 @@
   .intro-txt{
     width: 80%;
     margin-top: 20px;
+    padding-right: 0;
   }
   .intro-txt p{
     font-size: 20px;
@@ -139,5 +166,32 @@
   }
   .section2-item{
     width: 150px;
+  }
+
+  /*EXPERIENCE*/
+  .experience{
+    padding: 40px;
+  }
+
+
+  /* CONTACT */
+  .contact{
+    flex-direction: column;
+    padding: 40px;
+  }
+  .contact-txt{
+    width: 100%;
+  }
+  .contact-txt h3{
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  .contact-txt h4{
+    /* text-align: center; */
+  }
+  .contact-img{
+    width: 100%;
+    margin-top: 90px;
   }
 }

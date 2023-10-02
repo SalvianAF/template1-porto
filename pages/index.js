@@ -92,7 +92,21 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.contact}>
-
+            <div className={styles["contact-txt"]}>
+              <h3>Thats All About me, Feel free to say hi!</h3>
+              <h4>name@mail.com</h4>
+              <h4>+62 12345678</h4>
+            </div>
+            <div className={styles["contact-img"]}>
+              <Image
+                  src="/images/default-profile.jpg" // Route of the image file
+                  height={450} // Desired size with correct aspect ratio
+                  width={450} // Desired size with correct aspect ratio
+                  alt="Default Profile"
+                  className={styles['profile-img']}
+                />
+                <h4>www.name.com</h4>
+            </div>
           </div>
           {/* <h1 className={styles.title}>
             Learn <a href="https://nextjs.org">Next.js!</a>
