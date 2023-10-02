@@ -17,7 +17,7 @@ export default function Home() {
         <main>
           <div className={styles.intro}>
             <div className={styles['intro-section1']}>
-              <div className={styles['into-img']}>
+              <div className={styles['intro-img']}>
                 <Image
                   src="/images/default-profile.jpg" // Route of the image file
                   height={450} // Desired size with correct aspect ratio
@@ -26,7 +26,7 @@ export default function Home() {
                   className={styles['profile-img']}
                 />
               </div>
-              <div className={styles['into-txt']}>
+              <div className={styles['intro-txt']}>
                 <h3>Name</h3>
                 <h5>Lorem ipsum dolor sit </h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis luctus nibh, non ultrices diam tempus ut. Suspendisse tempus eget nulla non efficitur. Ut bibendum augue ipsum, eget pellentesque tellus auctor non.</p>
@@ -57,7 +57,39 @@ export default function Home() {
 
           </div>
           <div className={styles.experience}>
-
+            <h3>Experience</h3>
+            <div className={styles['exp-items']}>
+              <div className={styles['exp-item']}>
+                <Image
+                  src="/images/default-image.jpg" // Route of the image file
+                  height={300} // Desired size with correct aspect ratio
+                  width={300} // Desired size with correct aspect ratio
+                  alt="Default Image"
+                  className={styles['exp-img']}
+                />
+                <p>Default Image</p>
+              </div>
+              <div className={styles['exp-item']}>
+                <Image
+                  src="/images/default-image.jpg" // Route of the image file
+                  height={300} // Desired size with correct aspect ratio
+                  width={300} // Desired size with correct aspect ratio
+                  alt="Default Image"
+                  className={styles['exp-img']}
+                />
+                <p>Default Image</p>
+              </div>
+              <div className={styles['exp-item']}>
+                <Image
+                  src="/images/default-image.jpg" // Route of the image file
+                  height={300} // Desired size with correct aspect ratio
+                  width={300} // Desired size with correct aspect ratio
+                  alt="Default Image"
+                  className={styles['exp-img']}
+                />
+                <p>Default Image</p>
+              </div>
+            </div>
           </div>
           <div className={styles.contact}>
 
