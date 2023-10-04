@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import Image from 'next/image';
+import Carousel from '../components/carousel';
 
 export default function Home() {
   return (
@@ -53,9 +54,11 @@ export default function Home() {
             </div>
 
           </div>
-          <div className={styles.portofolio}>
 
+          <div className={styles.portofolio}>
+            <Carousel/>
           </div>
+
           <div className={styles.experience}>
             <h3>Experience</h3>
             <div className={styles['exp-items']}>

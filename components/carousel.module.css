@@ -1,0 +1,32 @@
+.carousel{
+    width: 100%;
+    background-color: bisque;
+    height: 500px;
+    position: static;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+.slide-left{
+    width: 100%;
+    height: 500px;
+    background-color: aqua;
+}
+.slide-middle{
+    width: 100%;
+    height: 500px;
+    background-color: aqua;
+}
+.slide-right{
+    width: 100%;
+    height: 500px;
+    background-color: aqua;
+}
+.slides{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* overflow: 'hidden';
+    position: relative; */
+}
