@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import styles from './carousel.module.css';
 import { Slide, Box } from '@mui/material';
 import Image from 'next/image';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { ChevronRight,ChevronLeft } from '@mui/icons-material';
 
 let index = 0
 export default function Carousel(props) {
@@ -22,6 +24,7 @@ export default function Carousel(props) {
     const containerLeftRef = useRef(null);
     const containerRightRef = useRef(null);
     const containerMiddleRef = useRef(null);
+    const containerMiddleDescRef = useRef(null);
 
     useEffect(() => {
         setLeftSlide(contents[contents.length-1])
@@ -87,9 +90,9 @@ export default function Carousel(props) {
     return (
         <div className={styles.carousel}>
             <div className={styles.slides}>
-                <Box sx={{width:'20%', height: 400, overflow: 'hidden', borderRadius:3 }} ref={containerLeftRef}>
+                <Box sx={{width:'20%', height: 400, overflow: 'hidden', borderRadius:3,  '@media (max-width: 600px)': {display:'none'}}} ref={containerLeftRef}>
                     <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerLeftRef.current} timeout={500}>
-                        <div className={styles["slide-left"]} onClick={()=> setDirection("left")} style={{backgroundColor:leftSlide.color}}>
+                        <div className={styles["slide-left"]} onClick={()=> setDirection("left")} >
                         <Image
                             src={leftSlide.img} // Route of the image file
                             height={500} // Desired size with correct aspect ratio
@@ -101,9 +104,10 @@ export default function Carousel(props) {
                     </Slide>
                 </Box>
                 {/* <div className={styles['container-middle']}> */}
-                    <Box sx={{width:'50%', height: 400, overflow: 'hidden', borderRadius:3}} ref={containerMiddleRef}>
+                    <Box sx={{width:'50%', height: 400, overflow: 'hidden', borderRadius:3, position:'relative',
+                    '@media (max-width: 600px)': {width: '100%'}}} ref={containerMiddleRef}>
                         <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleRef.current} timeout={500}>
-                            <div className={styles["slide-middle"]}  style={{backgroundColor:middleSlide.color}}>
+                            <div className={styles["slide-middle"]} >
                                 <Image
                                     src={middleSlide.img} // Route of the image file
                                     height={500} // Desired size with correct aspect ratio
@@ -113,11 +117,22 @@ export default function Carousel(props) {
                                 />
                             </div>
                         </Slide>
+                        <div className={styles['button-container']}>
+                            <div className={styles.buttons}>
+                                <button className={styles['carousel-btn']} onClick={()=> setDirection("left")}>
+                                    <ChevronLeft fontSize='medium' />
+                                </button>
+                                <button className={styles['carousel-btn']} onClick={()=> setDirection("right")}>
+                                    <ChevronRight fontSize='medium'/>
+                                </button>
+
+                            </div>
+                        </div>
                     </Box>
                 {/* </div> */}
-                 <Box sx={{width:'20%', height: 400, overflow: 'hidden',borderRadius:3 }} ref={containerRightRef}>
+                 <Box sx={{width:'20%', height: 400, overflow: 'hidden',borderRadius:3,'@media (max-width: 600px)': {display:'none'} }} ref={containerRightRef}>
                     <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerRightRef.current} timeout={500}>
-                        <div className={styles["slide-left"]} onClick={()=> setDirection("right")} style={{backgroundColor:rightSlide.color}}>
+                        <div className={styles["slide-left"]} onClick={()=> setDirection("right")}>
                             <Image
                                 src={rightSlide.img} // Route of the image file
                                 height={500} // Desired size with correct aspect ratio
@@ -130,8 +145,9 @@ export default function Carousel(props) {
                 </Box>
             </div>
             <div className={styles['slide-desc']}>
-                <Box sx={{width:'50%', height:'fit-content', overflow: 'hidden', borderRadius:3,  '@media (max-width: 600px)': {width: '100%'}}} ref={containerMiddleRef}>
-                    <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleRef.current} timeout={500}>
+                <Box sx={{width:'50%', maxHeight:140, overflowX: 'hidden',overflowY:'auto', backgroundColor:"rgba(223, 223, 223, 0.5)",
+                  '@media (max-width: 768px)': {width: '100%'}}}  ref={containerMiddleDescRef} >
+                    <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleDescRef.current} timeout={500}>
                         <p className={styles['desc-txt']}>
                             {middleSlide.desc}
                         </p>

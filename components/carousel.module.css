@@ -1,7 +1,8 @@
 .carousel{
     width: 100%;
-    background-color: bisque;
-    height: 400px;
+    /* background-color: bisque; */
+    min-height: 600px;
+    height: fit-content;
     /* position: static; */
     /* display: flex;
     flex-direction: row;
@@ -39,15 +40,52 @@
 .container-middle{
     width: 50%;
     height: fit-content;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .slide-desc{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: -40px;
+    padding-top: 30px;
 }
+.button-container{
+    display: none !important;
+    /* display: block; */
+    position: absolute;
+    top:45%;
+    width: 100%;
+    /* flex-direction:row; */
+    /* justify-content: space-between; */
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.carousel-btn{
+   width: 40px;
+   height: 40px;
+   border-radius: 100%;
+   border: 0;
+   background-color: rgba(255, 255, 255, 0.5);
+}
+.carousel-btn:active:hover{
+    background-color: rgba(95, 95, 95, 0.855);
+ }
+ .desc-txt{
+    height: 150px;
+ }
+
 @media (max-width: 768px) {
     .desc-txt{
         font-size: medium;
+    }
+}
+
+@media (max-width: 600px) {
+    .button-container{
+        display: block !important;
+        /* justify-content: center; */
     }
 }
