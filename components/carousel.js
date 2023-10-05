@@ -145,7 +145,7 @@ export default function Carousel(props) {
                 </Box>
             </div>
             <div className={styles['slide-desc']}>
-                <Box sx={{width:'50%', maxHeight:140, overflowX: 'hidden',overflowY:'auto', backgroundColor:"rgba(223, 223, 223, 0.5)",
+                <Box sx={{width:'50%', maxHeight:130, overflowX: 'hidden',overflowY:'auto', backgroundColor:"rgba(223, 223, 223, 0.5)",
                   '@media (max-width: 768px)': {width: '100%'}}}  ref={containerMiddleDescRef} >
                     <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleDescRef.current} timeout={500}>
                         <p className={styles['desc-txt']}>
