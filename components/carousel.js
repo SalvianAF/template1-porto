@@ -1,10 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './carousel.module.css';
 import { Slide, Box } from '@mui/material';
+import Image from 'next/image';
 
 let index = 0
 export default function Carousel(props) {
-    const [contents, setContents] = useState([{id:1,color:"red"},{id:2,color:"white"},{id:3,color:"yellow"},{id:4,color:"blue"}])
+    const [contents, setContents] = useState([
+        {id:1,img:"/images/slide1.jpg",desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ullamcorper erat, sed tincidunt dolor ullamcorper eget. Suspendisse potenti. Quisque maximus varius felis a convallis. Praesent aliquet arcu ac purus fringilla aliquet. Integer rutrum semper ante, id vehicula lectus pellentesque ac. Sed tristique quam nunc, ut convallis lectus pharetra eget. Donec a diam non ipsum sollicitudin hendrerit."},
+        {id:2,img:"/images/slide2.jpg",desc:"Maecenas viverra justo in condimentum mattis. Integer fermentum interdum cursus. Phasellus dignissim, enim et iaculis sagittis, magna metus commodo dui, nec maximus augue tellus at nulla. Etiam erat massa, scelerisque eget ex vel, vestibulum porta purus. Pellentesque at lectus nibh. Nulla quis purus eget purus bibendum vehicula non sit amet sapien. Duis non vestibulum libero. Nulla at magna elementum, eleifend purus ac, finibus quam."},
+        {id:3,img:"/images/slide3.jpg", desc:"Cras hendrerit lorem vitae libero finibus auctor ut ac nunc. Quisque facilisis ligula sit amet sem porta ornare. In ac dictum leo. Quisque maximus libero nec semper tempus. Mauris eleifend ex in nulla porttitor pharetra. Aliquam egestas non lorem eget ultricies. Suspendisse quis maximus ligula."},
+        {id:4,img:"/images/slide4.jpg", desc:"Proin ut ligula id elit hendrerit luctus. Ut id cursus mi. Morbi vitae congue dolor, ut suscipit dui. Pellentesque blandit turpis in dolor facilisis, ac aliquam mauris imperdiet. Fusce tristique vehicula nisi. In sagittis feugiat nisl id scelerisque. Nulla sodales lobortis posuere. Pellentesque turpis lorem"}
+    ])
     // const [index, setIndex] = useState(0)
     const [direction, setDirection] = useState("")
     const [leftSlide, setLeftSlide] = useState({})
@@ -24,7 +30,7 @@ export default function Carousel(props) {
         // index++
         // setInterval(() => {
         //     setDirection('right')
-        //   }, 10000);
+        //   }, 6000);
     },[])
 
     useEffect(() => {
@@ -57,19 +63,7 @@ export default function Carousel(props) {
             }else{
                 index++
                 setRightSlide(contents[index+1])
-            }
-            console.log(index)
-            // setRightSlide(contents[index+1])
-
-            // index++
-            // console.log(index)
-            // if(index == contents.length-1){
-            //     setRightSlide(contents[0])
-            //     index = -1
-            // }else{
-            //     setRightSlide(contents[index+1])
-            // }
-            
+            }    
         }else if (direction == "left") {
             setInOutDirection('right')
             setRightSlide(middleSlide)
@@ -85,29 +79,6 @@ export default function Carousel(props) {
                 index--
                 setLeftSlide(contents[index-1])
             }
-            // index--
-            // console.log(index)
-            // if(index == -1){
-            //     setLeftSlide(contents[contents.length-2])
-            //     index = contents.length -1
-            // }else if (index == 0){
-            //     setLeftSlide(contents[contents.length-1])
-            // }else{
-            //     setLeftSlide(contents[index-1])
-            // }
-
-            // console.log(index)
-            // if (index-1 == 1){
-            //     setLeftSlide(contents[contents.length-1])
-            //     setIndex(1)
-            // }else{
-            //     setLeftSlide(contents[index+1])
-            //     if (index < 0){
-            //         setIndex(2)
-            //     }else{
-            //         setIndex(index-1)
-            //     }
-            // }
         }
         setCheck(true)
         setDirection("")
@@ -116,32 +87,54 @@ export default function Carousel(props) {
     return (
         <div className={styles.carousel}>
             <div className={styles.slides}>
-                <Box sx={{width:'100%', height: 500, overflow: 'hidden' }} ref={containerLeftRef}>
+                <Box sx={{width:'20%', height: 400, overflow: 'hidden', borderRadius:3 }} ref={containerLeftRef}>
                     <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerLeftRef.current} timeout={500}>
                         <div className={styles["slide-left"]} onClick={()=> setDirection("left")} style={{backgroundColor:leftSlide.color}}>
-                            {leftSlide.id}
+                        <Image
+                            src={leftSlide.img} // Route of the image file
+                            height={500} // Desired size with correct aspect ratio
+                            width={500} // Desired size with correct aspect ratio
+                            alt="Default Profile"
+                            className={styles['slide-img']}
+                        />
                         </div>
                     </Slide>
                 </Box>
-                <Box sx={{width:'100%', height: 500, overflow: 'hidden' }} ref={containerMiddleRef}>
-                    <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleRef.current} timeout={500}>
-                        <div className={styles["slide-middle"]}  style={{backgroundColor:middleSlide.color}}>
-                            {middleSlide.id}
-                        </div>
-                    </Slide>
-                </Box>
-                {/* <Box sx={{width:'100%', height: 500, overflow: 'hidden' }} ref={containerRef}>
-                    <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerRef.current} timeout={400}>
-                        <div className={styles["slide-right"]} onClick={()=> setDirection("right")} style={{backgroundColor:rightSlide.color}}>
-                                {rightSlide.id}
-                        </div>
-                    </Slide>
-                </Box> */}
-                 <Box sx={{width:'100%', height: 500, overflow: 'hidden' }} ref={containerRightRef}>
+                {/* <div className={styles['container-middle']}> */}
+                    <Box sx={{width:'50%', height: 400, overflow: 'hidden', borderRadius:3}} ref={containerMiddleRef}>
+                        <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleRef.current} timeout={500}>
+                            <div className={styles["slide-middle"]}  style={{backgroundColor:middleSlide.color}}>
+                                <Image
+                                    src={middleSlide.img} // Route of the image file
+                                    height={500} // Desired size with correct aspect ratio
+                                    width={500} // Desired size with correct aspect ratio
+                                    alt="Default Profile"
+                                    className={styles['slide-img']}
+                                />
+                            </div>
+                        </Slide>
+                    </Box>
+                {/* </div> */}
+                 <Box sx={{width:'20%', height: 400, overflow: 'hidden',borderRadius:3 }} ref={containerRightRef}>
                     <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerRightRef.current} timeout={500}>
                         <div className={styles["slide-left"]} onClick={()=> setDirection("right")} style={{backgroundColor:rightSlide.color}}>
-                            {rightSlide.id}
+                            <Image
+                                src={rightSlide.img} // Route of the image file
+                                height={500} // Desired size with correct aspect ratio
+                                width={500} // Desired size with correct aspect ratio
+                                alt="Default Profile"
+                                className={styles['slide-img']}
+                            />
                         </div>
+                    </Slide>
+                </Box>
+            </div>
+            <div className={styles['slide-desc']}>
+                <Box sx={{width:'50%', height:'fit-content', overflow: 'hidden', borderRadius:3,  '@media (max-width: 600px)': {width: '100%'}}} ref={containerMiddleRef}>
+                    <Slide direction={inOutDirection} in={check} mountOnEnter unmountOnExit container={containerMiddleRef.current} timeout={500}>
+                        <p className={styles['desc-txt']}>
+                            {middleSlide.desc}
+                        </p>
                     </Slide>
                 </Box>
             </div>

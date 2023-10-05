@@ -1,8 +1,8 @@
 .carousel{
     width: 100%;
     background-color: bisque;
-    height: 500px;
-    position: static;
+    height: 400px;
+    /* position: static; */
     /* display: flex;
     flex-direction: row;
     justify-content: space-between; */
@@ -10,23 +10,44 @@
 .slide-left{
     width: 100%;
     height: 500px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .slide-middle{
     width: 100%;
     height: 500px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .slide-right{
     width: 100%;
     height: 500px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .slides{
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     /* overflow: 'hidden';
     position: relative; */
+}
+.slide-img{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+}
+.container-middle{
+    width: 50%;
+    height: fit-content;
+    background-color: aqua;
+}
+.slide-desc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    .desc-txt{
+        font-size: medium;
+    }
 }

@@ -56,6 +56,7 @@ export default function Home() {
           </div>
 
           <div className={styles.portofolio}>
+            <h3>Portofolio</h3>
             <Carousel/>
           </div>
 
