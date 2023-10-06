@@ -16,7 +16,7 @@ export default function Home() {
         </Head>
 
         <main>
-          <div className={styles.intro}>
+          <div className={styles.intro} id='home'>
             <div className={styles['intro-section1']}>
               <div className={styles['intro-img']}>
                 <Image

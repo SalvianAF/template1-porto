@@ -31,9 +31,9 @@ export default function Carousel(props) {
         setMiddleSlide(contents[index])
         setRightSlide(contents[index+1])
         // index++
-        // setInterval(() => {
-        //     setDirection('right')
-        //   }, 6000);
+        setInterval(() => {
+            setDirection('right')
+          }, 6000);
     },[])
 
     useEffect(() => {

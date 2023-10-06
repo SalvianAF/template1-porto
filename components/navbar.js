@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import styles from './navbar.module.css';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Projects','About', 'Contact'];
@@ -28,9 +29,9 @@ export default function  Navbar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+        <Typography variant="h6" sx={{ my: 2 }} color={'primary.main'}>
+          NAME
+        </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -60,13 +61,15 @@ export default function  Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft:5 }}
-          >
-            NAME
-          </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft:5 }}
+            >
+               <Link href='#home'>
+                  NAME
+              </Link>
+            </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} color='secondary' sx={{marginRight:5}}>
