@@ -14,6 +14,7 @@ body {
   box-sizing: border-box;
 }
 
+
 a {
   text-decoration: none;
   color: #F5E8B7;
@@ -25,12 +26,31 @@ img {
   display: block;
 }
 
+@font-face {
+  font-family: 'futura-med';
+  src: url('../fonts/Futura Medium.otf');
+  /* font-weight: bold; */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-light';
+  src: url('../fonts/Futura Light.otf');
+  /* font-weight: bold; */
+  font-style: normal;
+}
+
 h3{
-  font-size: 40px;
+  font-size: 35px;
   margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+}
+h5,p{
+  font-family: 'futura-med';
 }
 h4{
-  font-size: x-large;
-  font-weight: 600;
-  margin: 0;
+  font-family: 'futura-med';
+  font-size:20px;
+  margin: 5;
 }

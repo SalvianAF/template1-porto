@@ -37,7 +37,7 @@ export default function  Navbar(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item}  sx={{ fontFamily: 'futura' }}/>
             </ListItemButton>
           </ListItem>
         ))}
@@ -61,18 +61,20 @@ export default function  Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-            <Typography
+            {/* <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft:5 }}
-            >
-               <Link href='#home'>
+            > */}
+            <h3 className={styles['nav-title']}>
+              <Link href='#home'>
                   NAME
               </Link>
-            </Typography>
+            </h3>
+            {/* </Typography> */}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} color='secondary' sx={{marginRight:5}}>
+              <Button key={item} color='secondary' sx={{marginRight:5, fontFamily: 'futura', textTransform: 'none', fontSize:20}}>
                 {item}
               </Button>
             ))}

@@ -29,7 +29,7 @@
 }
 .intro-txt h5{
   font-size: xx-large;
-  font-weight: 700;
+  font-weight:bold;
   margin: 0;
 }
 .intro-txt p{
@@ -52,13 +52,13 @@
   /* background-color: aqua; */
 }
 .section2-item h3{
-  font-size: 60px;
+  font-size: 70px;
   color: #6A9C89;
 }
 .section2-item p{
   font-size: 20px;
   margin: 0;
-  margin-top: 30px;
+  margin-top: 50px;
   line-height: 20px;
   /* word-spacing: 20px; */
 }
@@ -125,9 +125,9 @@
   height: 400px; */
 }
 .exp-item p{
-  font-size: 23px;
+  font-size: 20px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* CONTACT */
@@ -205,9 +205,6 @@
     width: 100%;
     margin-bottom: 20px;
     font-size: 30px;
-  }
-  .contact-txt h4{
-    /* text-align: center; */
   }
   .contact-img{
     width: 100%;
